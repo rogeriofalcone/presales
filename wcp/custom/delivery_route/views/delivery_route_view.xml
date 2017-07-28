@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+       <!-- Route Information Tree View -->
+       <record model="ir.ui.view" id="view_delivery_route_tree">
+            <field name="name">view.delivery.route.tree</field>
+            <field name="model">delivery.route</field>
+            <field name="arch" type="xml">
+                <tree string="Route Information">
+                    <field name="name"/>
+                    <field name="contact_per_id"/>
+                    <field name="date_next"/>
+                </tree>
+            </field>
+        </record>
+
+       <!-- Route Information Form View -->
+       <record model="ir.ui.view" id="view_delivery_route_form">
+            <field name="name">view.delivery.route.form</field>
+            <field name="model">delivery.route</field>
+            <field name="arch" type="xml">
+                <form string="Route Information">
+                   <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Route Name"/>
+                            </h1>
+                        </div>
+                        <div class="oe_right oe_button_box" name="buttons">
+                           <button name="create_instances" type="object" groups="base.group_no_one"
+                               class="oe_stat_button" icon="fa-archive" string="Create Instances"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="contact_per_id" placeholder="Responsible"/>
+                            </group>
+                            <group>
+                                <label string="Frequency" for="interval_number"/>
+                                <div>
+                                    <field name="interval_number" class="oe_inline"/>
+                                    <field name="interval_type" class="oe_inline"/>
+                                </div>
+                                <field name="date_next" required="1"/>
+                                <field name="skip_weekends"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Vehicles" >
+                                    <separator string="Route Vehicle Details"/>
+                                    <group>
+                                        <field name="fleet_id"/>
+                                    </group>
+                            </page>
+                            <page string="Route Instances" >
+                                <field name="instance_ids" nolabel='1' editable='bottom'>
+                                    <tree string="Route Instances">
+                                        <field name="date"/>
+                                        <field name="fleet_id"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Route Information Search View -->
+        <record model="ir.ui.view" id="view_delivery_route_search">
+            <field name="name">view.delivery.route.search</field>
+            <field name="model">delivery.route</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <group string="Filter" col="10" colspan="4">
+                        <separator orientation="vertical"/>
+                        <field name="name"/>
+                        <field name="contact_per_id"/>
+                    </group>
+                   <newline/>
+                    <group expand="0" string="Group By" colspan="12" col="10">
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Route Information Action -->
+        <record model="ir.actions.act_window" id="action_delivery_route_form">
+            <field name="name">Route Information</field>
+            <field name="res_model">delivery.route</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+       <!-- Route Instance Tree View -->
+       <record model="ir.ui.view" id="view_delivery_route_instance_tree">
+            <field name="name">view.delivery.route.instance.tree</field>
+            <field name="model">delivery.route.instance</field>
+            <field name="arch" type="xml">
+                <tree string="Route Information">
+                    <field name="date"/>
+                    <field name="route_id"/>
+                    <field name="fleet_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+       <!-- Route Instance Form View -->
+       <record model="ir.ui.view" id="view_delivery_route_instance_form">
+            <field name="name">view.delivery.route.instance.form</field>
+            <field name="model">delivery.route.instance</field>
+            <field name="arch" type="xml">
+                <form string="Route Information">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,open,done" statusbar_colors='{"cancel":"red","open":"blue"}'/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="date" class="oe_inline"/>
+                                <field name="route_id" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <div class="oe_right oe_button_box" name="buttons">
+                        </div>
+                        <group>
+                            <group>
+                                <field name="fleet_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_delivery_route_calendar" model="ir.ui.view">
+            <field name="name">delivery.route.instance.calendar</field>
+            <field name="model">delivery.route.instance</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar color="route_id" date_start="date" string="Routes">
+                    <field name="fleet_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Route Instance Action -->
+        <record model="ir.actions.act_window" id="action_delivery_route_instance">
+            <field name="name">Route Instance</field>
+            <field name="res_model">delivery.route.instance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <!--Menu Items for Route  -->
+        <menuitem
+            id="menu_stock_delivery" name="Propane Delivery"
+            parent="stock.menu_stock_root"
+            sequence="2"/>
+
+        <menuitem
+            name="Fleet Route Assignments" parent="menu_stock_delivery"
+            id="menu_delivery_route_sub"
+            action="action_delivery_route_form"/>
+
+        <menuitem
+            name="Routes" parent="menu_stock_delivery"
+            id="menu_delivery_route_instace"
+            action="action_delivery_route_instance"/>
+
+        <record model="ir.ui.view" id="route_plan_tree">
+            <field name="name">route.plan.tree</field>
+            <field name="model">route.plan</field>
+            <field name="arch" type="xml">
+                <tree string="Route Plan">
+                    <field name="route_id"/>
+                    <field name="route_instance_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        
+
+        <record model="ir.ui.view" id="route_plan_location_tree">
+            <field name="name">route.plan.location.tree</field>
+            <field name="model">route.plan.location</field>
+            <field name="arch" type="xml">
+                <tree string="Route Plan">
+                    <field name="sequence" widget="handle"/>
+                    <field name="route_plan_id" invisible="True"/>
+                    <field name="location_id"/>
+                    <field name="scheduled"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_plan_2_location" model="ir.actions.act_window">
+            <field name="name">Route Plan Locations</field>
+            <field name="res_model">route.plan.location</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_route_plan_id': active_id}</field>
+            <field name="view_id" ref="route_plan_location_tree"/>
+        </record>
+
+        <record model="ir.ui.view" id="route_plan_form">
+            <field name="name">route.plan.form</field>
+            <field name="model">route.plan</field>
+            <field name="arch" type="xml">
+                <form string="Route Plan">
+                    <sheet string="Route Plan">
+                        <div class="oe_right oe_button_box" name="buttons">
+                            <button class="oe_inline oe_stat_button" type="action" name="%(act_plan_2_location)d" icon="fa-truck" string="Locations"/>
+                        </div>
+                        <div class="oe_title">
+                            <label for="route_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="route_id" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="route_instance_id" string="Route Instance"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="route_location_ids" nolabel="1" colors="grey:scheduled != True">
+                                <tree string="Route Plan" editable="bottom" >
+                                    <field name="sequence" widget="handle" />
+                                    <field name="location_id" readonly="1"/>
+                                    <field name="scheduled" readonly="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!--moved this action below the form view that it refers-->
+        <record id="action_route_plan" model="ir.actions.act_window">
+            <field name="name">Route Plan</field>
+            <field name="res_model">route.plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="route_plan_form"/>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="route_plan_location_form">
+            <field name="name">route.plan.location.form</field>
+            <field name="model">route.plan.location</field>
+            <field name="arch" type="xml">
+                <form string="Route Plan">
+                    <group>
+                        <group>
+                            <field name="route_plan_id" readonly="True"/>
+                            <field name="location_id"/>
+                        </group>
+                        <group>
+                            <field name="sequence" readonly="1"/>
+                            <field name="scheduled" readonly="1"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_route_plan_location" model="ir.actions.act_window">
+            <field name="name">Route Plan Location</field>
+            <field name="res_model">route.plan.location</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="route_plan_location_tree"/>
+        </record>
+
+    </data>
+</openerp>

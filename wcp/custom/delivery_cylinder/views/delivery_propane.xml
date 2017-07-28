@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_delivery_propane">
+            <style>
+                table{
+                width:100%
+                }
+                td,th{
+                border:1px solid #323232;
+                padding: 5px;
+                text-align:center;
+                }
+            </style>
+            <t t-call="report.html_container">
+                    <t t-call="report.internal_layout">
+                        <div class="page">
+                            <h3><u>Propane Delivery Report</u></h3>
+                            <br/><br/>
+                            <table style="page-break-after:always;" t-foreach="docs" t-as="o">
+                                <thead>
+                                    <th>
+                                        <strong>Location</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Product</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Date</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Project</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Delivery Route</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Sequence</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Actual In</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Actual Out</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Type</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Status</strong>
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span t-field="o.location_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.product_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.delivery_date"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.project_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.delivery_route_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.sequence"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.actual_in"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.actual_out"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.type"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.state"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+            </t>
+        </template>
+        
+    </data>
+</openerp>

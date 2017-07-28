@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <record id="parent_asset" model="account.asset.asset">
+            <field name="name">Tanks</field>
+            <field name="type" eval="'view'"/>
+            <field name="purchase_value">0.0</field>
+        </record>
+    
+    </data>
+    </openerp>

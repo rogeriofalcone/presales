@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <template id="assets_backend" name="openware css" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/delivery_propane_midcom/static/src/css/widget.css"/>
+                <script type="text/javascript" src="/delivery_propane_midcom/static/src/js/widget.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

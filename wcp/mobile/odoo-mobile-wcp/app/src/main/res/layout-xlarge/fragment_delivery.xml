@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:padding="10dp"-->
+<!--android:orientation="vertical">-->
+
+<!--<ImageView-->
+<!--android:id="@+id/image"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:src="@drawable/image" />-->
+
+<!--<TextView-->
+<!--android:id="@+id/title"-->
+<!--android:layout_width="128dp"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="Actual IN:"-->
+<!--android:textSize="20dp"-->
+<!--android:gravity="left" />-->
+
+<!--<EditText-->
+<!--android:id="@+id/actual_in"-->
+<!--android:layout_width="60dp"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:editable="true"-->
+<!--android:elegantTextHeight="true"-->
+<!--android:inputType="number"-->
+<!--android:numeric="integer"-->
+<!--android:singleLine="true"-->
+<!--android:textColor="#8a46ff"-->
+<!--android:layout_toRightOf="@+id/title1"-->
+<!--android:layout_above="@+id/actual_out"-->
+<!--android:layout_alignTop="@+id/title"-->
+<!--android:layout_alignRight="@+id/actual_out"-->
+<!--android:layout_alignEnd="@+id/actual_out"-->
+<!--android:layout_marginBottom="15dp"-->
+<!--android:layout_gravity="center_horizontal" />-->
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="  Product:"
+            android:id="@+id/textView13"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/product_name"
+            android:layout_column="1"
+            android:editable="false"
+            android:elegantTextHeight="false"
+            android:textColor="#0e0d0f" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="  Partner:"
+            android:id="@+id/textView14"
+            android:layout_column="0"
+            android:typeface="sans"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/partner_name"
+            android:layout_column="1"
+            android:textColor="#f8070708" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="  Actual IN:"
+            android:id="@+id/textView15"
+            android:layout_column="0"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:gravity="clip_horizontal" />
+
+        <NumberPicker android:id="@+id/actual_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:gravity="fill_horizontal|clip_vertical"
+            android:measureWithLargestChild="true"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layoutMode="opticalBounds"
+            android:transitionGroup="true" />
+
+        <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:id="@+id/actual_in"-->
+        <!--android:layout_column="1"-->
+        <!--android:editable="true"-->
+        <!--android:elegantTextHeight="true"-->
+        <!--android:numeric="integer"-->
+        <!--android:inputType="number" />-->
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="  Actual Out:"
+            android:id="@+id/textView17"
+            android:layout_column="0"
+            android:layout_marginBottom="5dp"
+            android:typeface="sans"
+            android:textStyle="bold" />
+
+        <NumberPicker android:id="@+id/actual_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:gravity="fill_horizontal|clip_vertical"
+            android:measureWithLargestChild="true"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layoutMode="opticalBounds"
+            android:transitionGroup="true" />
+
+        <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:id="@+id/actual_out"-->
+        <!--android:layout_column="1"-->
+        <!--android:editable="true"-->
+        <!--android:elegantTextHeight="true"-->
+        <!--android:inputType="number"-->
+        <!--android:numeric="integer"-->
+        <!--android:textColor="#010104" />-->
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:id="@+id/button"
+            android:layout_column="1"
+            android:layout_marginBottom="20dp" />
+    </TableRow>
+
+</TableLayout>
+
+    <!--<EditText-->
+    <!--android:id="@+id/actual_out"-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_below="@+id/title1"-->
+    <!--android:layout_toRightOf="@+id/title1"-->
+    <!--android:layout_toEndOf="@+id/title1"-->
+    <!--android:editable="true"-->
+    <!--android:elegantTextHeight="true"-->
+    <!--android:inputType="number"-->
+    <!--android:numeric="integer"-->
+    <!--android:textColor="#6760ff" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/title1"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Actual Out:"-->
+    <!--android:textSize="20dp"-->
+    <!--android:layout_below="@+id/title"-->
+    <!--android:layout_marginTop="20dp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/title3"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Product:"-->
+    <!--android:textSize="20dp"-->
+    <!--android:layout_below="@+id/title"-->
+    <!--android:layout_marginTop="20dp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/title_edit"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="20dp"-->
+    <!--android:layout_alignRight="@+id/dismiss"-->
+    <!--android:layout_alignEnd="@+id/dismiss"-->
+    <!--android:layout_alignTop="@+id/title1"-->
+    <!--android:layout_toRightOf="@+id/actual_in"-->
+    <!--android:layout_toEndOf="@+id/actual_in" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/dismiss"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:text="Dismiss"-->
+    <!--android:layout_below="@+id/title1"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginTop="59dp" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="Medium Text"-->
+    <!--android:id="@+id/textView10"-->
+    <!--android:layout_above="@+id/title"-->
+    <!--android:layout_toLeftOf="@+id/actual_in"-->
+    <!--android:layout_toStartOf="@+id/actual_in" />-->
+    <!--</LinearLayout>-->
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent" android:layout_height="match_parent"-->
+    <!--android:id="@+id/item_delivery">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="20sp"-->
+    <!--android:id="@+id/delivery_product_name"-->
+    <!--android:layout_toEndOf="@+id/textView3"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_toRightOf="@+id/textView3"-->
+    <!--android:layout_marginLeft="6dp" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="78dp"-->
+    <!--android:layout_height="39dp"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="Product:"-->
+    <!--android:id="@+id/textView"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="20sp"-->
+    <!--android:id="@+id/delivery_partner_name"-->
+    <!--android:textIsSelectable="false"-->
+    <!--android:visibility="visible"-->
+    <!--android:layout_below="@+id/textView2"-->
+    <!--android:layout_toRightOf="@+id/textView2"-->
+    <!--android:layout_alignRight="@+id/delivery_schedule_in"-->
+    <!--android:layout_alignEnd="@+id/delivery_schedule_in" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="Partner Name:"-->
+    <!--android:id="@+id/textView2"-->
+    <!--android:layout_below="@+id/delivery_product_name"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/do_lst_price"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignBottom="@+id/textView3"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignRight="@+id/do_name"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignEnd="@+id/do_name"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toEndOf="@+id/do_name"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView3"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toRightOf="@+id/do_name" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/default_code"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignRight="@+id/incomming_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignEnd="@+id/incomming_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView8"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toRightOf="@+id/textView6"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toEndOf="@+id/textView6" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/outgoing_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toEndOf="@+id/textView5"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView5"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toRightOf="@+id/textView5" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/gross_weight"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toEndOf="@+id/textView6"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView6"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toRightOf="@+id/textView6" />&ndash;&gt;-->
+
+
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Price :"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView3"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/do_quantity"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:visibility="invisible"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Incomming Quantity :"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView4"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/default_code"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Outgoing Quantity :"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView5"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/incomming_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Gross Weight :"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView6"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/outgoing_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Rack Location :"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView7"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/gross_weight"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:visibility="invisible" />&ndash;&gt;-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="Schedule IN:"-->
+    <!--android:id="@+id/textView10"-->
+    <!--android:layout_below="@+id/textView2"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<EditText-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="20sp"-->
+    <!--android:id="@+id/delivery_schedule_out"-->
+    <!--android:layout_gravity="right"-->
+    <!--android:layout_alignTop="@+id/textView8"-->
+    <!--android:layout_toRightOf="@+id/textView2"-->
+    <!--android:layout_toStartOf="@+id/button_product_cancel"-->
+    <!--android:layout_alignRight="@+id/button_product_cancel"-->
+    <!--android:layout_alignEnd="@+id/button_product_cancel" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="Schedule Out:"-->
+    <!--android:id="@+id/textView8"-->
+    <!--android:layout_below="@+id/textView10"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Submit"-->
+    <!--android:id="@+id/button_product_cancel"-->
+    <!--android:layout_marginTop="89dp"-->
+    <!--android:layout_below="@+id/textView8"-->
+    <!--android:layout_centerHorizontal="true" />-->
+
+    <!--<EditText-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="20sp"-->
+    <!--android:id="@+id/delivery_schedule_in"-->
+    <!--android:layout_gravity="right"-->
+    <!--android:layout_alignTop="@+id/textView10"-->
+    <!--android:layout_alignRight="@+id/button_product_cancel"-->
+    <!--android:layout_alignEnd="@+id/button_product_cancel"-->
+    <!--/>-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/skids_grid"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_below="@+id/textView8"-->
+    <!--android:layout_alignRight="@+id/textView9"-->
+    <!--android:layout_alignEnd="@+id/textView9" />-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/loc_row"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView11"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toRightOf="@+id/textView7"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignRight="@+id/button_cancel"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignEnd="@+id/button_cancel"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="3dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/loc_rack"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignLeft="@+id/loc_case"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignStart="@+id/loc_case"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView7"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_above="@+id/button_product_cancel" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/loc_case"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toRightOf="@+id/textView9"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginLeft="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignTop="@+id/textView9"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignRight="@+id/incomming_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignEnd="@+id/incomming_qty"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="20sp" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<android.support.v7.widget.RecyclerView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/skids_grid"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/button_product_cancel"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignRight="@+id/textView9"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignEnd="@+id/textView9" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Row Location:"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView11"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/loc_rack"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignRight="@+id/textView7"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignEnd="@+id/textView7"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentEnd="false"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:visibility="invisible" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceMedium"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="Case Location:"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView9"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_below="@+id/textView11"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toLeftOf="@+id/loc_row"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_toStartOf="@+id/loc_row"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentStart="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:visibility="invisible" />&ndash;&gt;-->
+
+    <!--</RelativeLayout>-->

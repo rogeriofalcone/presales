@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+        <!-- Product Form View
+        <record id='view_product_form_inherit' model='ir.ui.view'>
+            <field name="name">product.product.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="sale_ok" position="before">
+                    
+                    <field name="container_ok"
+                            attrs="{'invisible':[('type','=','service')]}" />
+                    <label for="container_ok"
+                                attrs="{'invisible':[('type','=','service')]}" />
+                </field>
+            </field>
+        </record>-->
+
+        <!-- Product Template Form View -->
+        <record id='view_product_template_form_inherit' model='ir.ui.view'>
+            <field name="name">product.template.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="sale_ok" position="before">
+                    <field name="return_ok" invisible="1"/>
+                            <!--attrs="{'invisible':[('container_ok','=',True)]}" />-->
+                    <label for="return_ok" invisible="1"/>
+                            <!--attrs="{'invisible':[('container_ok','=',True)]}" />-->
+                    <field name="container_ok"
+                            attrs="{'invisible':[('type','=','service')]}" />
+                    <label for="container_ok"
+                                attrs="{'invisible':[('type','=','service')]}" />
+                </field>
+            </field>
+        </record>
+
+   </data>
+</openerp>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="account_analytic_account_delivery_form" model="ir.ui.view">
+            <field name="name">account.analytic.account.delivery.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="project"]' position='inside'>
+                    <field name="use_delivery" class="oe_inline"/>
+                    <label for="use_delivery" string="Deliveries"/>
+                </xpath>
+                <xpath expr="//field[@name='code']" position="replace">
+                    <field name="code" help="Used for internal or customer contract number. Defaults to an assigned number"/>
+                    <field name="client_order_ref" help="Used for customer reference, such as a PO number"/>
+                </xpath>
+                <xpath expr="//field[@name='description']" position="after">
+                    <separator string="Notes" name="notes"/>
+                    <field name="notes"/>
+                </xpath>
+                <xpath expr='//page[@name="contract_page"]' position='after'>
+                    <page string="Delivery Schedule" name="service_page"  attrs="{'invisible':[('use_delivery','=',False)]}">
+                        <group>
+                            <group>
+                                <field name="contract_type"/>
+                                <label for="delivery_number"/>
+                                <div>
+                                    <field name="delivery_number"/>
+                                    <div class="oe_grey">
+                                        <field name="delivery_quantity" class="oe_inline"/> Total Delivery
+                                    </div>
+                                    <div attrs="{'invisible': [('delivery_number','&lt;=',0)]}" class="oe_grey">
+                                        <field name="remaining_delivery" class="oe_inline"/> Deliveries Remaining
+                                    </div>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="delivery_offset"/>
+                            </group>
+                        </group>
+                        <field colspan="4" name="delivery_ids" nolabel="1" attrs="{'readonly':[('state','!=','open')]}">
+                            <tree string="Delivery Locations">
+                                <field name="name" />
+                                <field name="location_id" required="1" context="{'show_street': 1}"/>
+                                <field name="interval_number"/>
+                                <field name="nextcall"/>
+                                <field name="date_start" invisible="1"/>
+                            </tree>
+                            <form string="Delivery Locations">
+                                <group>
+                                    <group>
+                                        <field name="name" />
+                                    </group>
+                                    <group>
+                                        <field name="location_id" required="1" context="{'show_street': 1}" domain="[('parent_id','child_of',parent.partner_id)]"/>
+                                    </group>
+                                    <group>
+                                        <field name="interval_number"/>
+                                        <field name="sequence"/>
+                                    </group>
+                                    <group>
+                                        <field name="nextcall"/>
+                                        <field name="numbercall"/>
+                                        <field name="active"/>
+                                    </group>
+                                    <group>
+                                        <field name="date_start" required="1"/>
+                                        <field name="date_end"/>
+                                    </group>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <page string="Rental Info" name="rental_page">
+                        <group>
+                            <group>
+                                <field name="rental_lastcall"/>
+                            </group>
+                        </group>
+                        <label for="rental_product_line_ids" string="Rental Rates"/>
+                        <div >
+                            <field name="rental_product_line_ids">
+                                <form string="Account Rental Lines" >
+                                    <header>
+                                        <field name="state" widget="statusbar" statusbar_visible="ordered,out,in"/>
+                                    </header>
+                                    <group>
+                                        <field name="product_id" on_change="product_id_change(product_id, name, parent.partner_id, price_unit, parent.pricelist_id, parent.company_id)"/>
+                                        <field name="name"/>
+                                        <field name="lot_id" string="Serial Number"/>
+                                        <field name="location_id"/>
+                                    </group>
+                                    <group>
+                                        <label string="Interval" for="interval_number"/>
+                                        <div>
+                                            <field name="interval_number" class="oe_inline"/>
+                                            <field name="interval_type" class="oe_inline"/>
+                                        </div>
+                                        <field name="nextcall" readonly="1"/>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="price_unit" string="Price"/>
+                                            <field name="waiver_opt_out"/>
+                                        </group>
+                                        <group>
+                                            <field name="date_end" required="1"/>
+                                            <field name="date_start"/>
+                                        </group>
+                                        <group>
+                                            <field name="out_move_id" />
+                                            <field name="in_move_id"/>
+                                        </group>
+                                    </group>
+                                </form>
+                                <tree string="Account Rental Lines" >
+                                    <field name="name"/>
+                                    <field name="location_id"/>
+                                    <field name="product_id" on_change="product_id_change(product_id, name, parent.partner_id, price_unit, parent.pricelist_id, parent.company_id)"/>
+                                    <field name="lot_id" string="Serial Number"/>
+                                    <field name="price_unit" string="Price"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="sale_id"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <group string="Description of Work">
+                            <field name="rental_description" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="account_analytic_account_form_form_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.account.invoice.form.inherit</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account_analytic_analysis.account_analytic_account_form_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//label[@for='quantity_max']" position='replace'>
+                   <label for="quantity_max" string="Prepaid Hours"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

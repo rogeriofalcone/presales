@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record id="view_load_midcom_form" model="ir.ui.view">
+            <field name="name">delivery.load.midcom.form</field>
+            <field name="model">delivery.load.midcom</field>
+            <field name="arch" type="xml">
+                <form string="Import Deliveries">
+                    <group>
+                        <group>
+                            <field name="delivery_route_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="midcom_file" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_load_midcom" type="object" string="Import Deliveries" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window
+            name="Import Deliveries"
+            res_model="delivery.load.midcom"
+            src_model="delivery.propane"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_load_midcom"/>
+
+    </data>
+</openerp>

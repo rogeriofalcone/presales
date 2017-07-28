@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_main">Odoo</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="create_new">Create New</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="close_msg">Press back again to close</string>
+	
+    <!-- StockMove Fragment Strings -->
+    <string name="stockmove_title">Stockmove</string>
+    <string name="stockmove_edittext">Or enter it manually&#8230;</string>
+    <string name="stockmove_result">Last product scanned: %1$s</string>
+    <string name="stockmove_no_bt_device">Bluetooth device not paired</string>
+    <string name="stockmove_no_bt_device_desc">Please pair the scanner to the device</string>
+    <string name="stockmove_no_bt_device_okbutton">Go to settings</string>
+    <string name="stockmove_paired_state">Scanner %1$s</string>
+
+    <string name="stockmove_quantity">Quantity: %1$s</string>
+    <string name="stockmove_serial_not_found">Serial number not found</string>
+
+    <string name="sync_in_progress">Syncing&#8230;</string>
+    <string name="sync_complete">Sync complete</string>
+
+    <!-- Scanner and Skids fragments -->
+    <string name="scanlabel_delivery_order">Please scan a delivery order</string>
+    <string name="scanlabel_des_location">Please scan a destination location</string>
+    <string name="scanlabel_product_barcode">Please scan a product barcode</string>
+    <string name="scanlabel_skids">Please scan a skid</string>
+    <string name="delivery_msg">Please Select from below list</string>
+
+    <string name="stock_route_title">Routes</string>
+    <string name="location_title">Locations</string>
+    <string name="cylinder_title">Cylinder Deliver</string>
+</resources>

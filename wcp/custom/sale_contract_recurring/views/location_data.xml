@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+<data noupdate="1">
+
+<!--stock.location-->
+<record id="rental_in_stock_location" model="stock.location">
+    <field name="name">Rental In</field>
+    <field name="location_id" ref="stock.stock_location_stock"/>
+</record>
+
+<record id="rental_out_stock_location" model="stock.location">
+    <field name="name">Rental Out</field>
+    <field name="location_id" ref="stock.stock_location_stock"/>
+</record>
+
+</data>
+
+
+
+<!--stock.location.route-->
+<data noupdate="1">
+
+    <record id="route_warehouse0_rental" model="stock.location.route">
+        <field name="name">Rental Product</field>
+        <field name="sequence">100</field>
+        <field name="warehouse_selectable" eval="False"/>
+        <field name="product_selectable" eval="True"/>
+    </record>
+
+    <record id="route_warehouse0_cylinder" model="stock.location.route">
+        <field name="name">Cylinder</field>
+        <field name="sequence">100</field>
+        <field name="warehouse_selectable" eval="False"/>
+        <field name="product_selectable" eval="True"/>
+    </record>
+
+    <record id="procurement_rule_cylinder" model="procurement.rule">
+            <field name="name">Rent In-Rent Out</field>
+            <field name="action">move</field>
+            <field name="location_id" ref="rental_out_stock_location"/>
+            <field name="location_src_id" ref="rental_in_stock_location"/>
+            <field name="procure_method">make_to_stock</field>
+            <field name="route_id" ref="route_warehouse0_cylinder"/>
+            <field name="warehouse_id" ref="stock.warehouse0"/>
+            <field name="picking_type_id" ref="stock.picking_type_out"/>
+    </record>
+</data>
+
+</openerp>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="plan_route_form">
+            <field name="name">plan.route.form</field>
+            <field name="model">plan.route</field>
+            <field name="arch" type="xml">
+                <form string="Plan Route">
+                    <group>
+                        <group>
+                            <field name="route_id"/>
+                        </group>
+                        <group>
+                            <field name="route_instance_id" domain="[('route_id','=',route_id),('state','=','draft')]"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_plan_route" string="Continue" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Plan Route"
+            res_model="plan.route"
+            src_model="delivery.route"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_plan_route"/>
+
+        <menuitem name="Route Planner"
+            parent="delivery_route.menu_stock_delivery"
+            id="menu_delivery_route_plan"
+            action="action_plan_route"
+            sequence="3"/>
+
+    </data>
+</openerp>

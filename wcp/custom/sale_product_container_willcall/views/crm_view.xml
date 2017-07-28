@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="crm_case_phone_tree_view_inherit">
+            <field name="name">crm.phonecall.tree.inherit</field>
+            <field name="model">crm.phonecall</field>
+            <field name="inherit_id" ref="crm.crm_case_inbound_phone_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr='//field[@name="user_id"]' position='after'>
+                    <field name="type"/>
+                </xpath>
+                <xpath expr='//field[@name="partner_id"]' position='attributes'>
+                    <attribute name="string">Contact/Customer</attribute>
+                </xpath>
+                <xpath expr='//field[@name="opportunity_id"]' position='after'>
+                    <field name="willcall" invisible="1" />
+                </xpath>
+                <xpath expr='//button[@name="action_button_convert2opportunity"]' position='after'>
+                    <button string="Convert to Will Call"
+                        type="object"
+                        name="action_phonecall_2_willcall"
+                        icon="gtk-go-forward"
+                        attrs="{'invisible':['|',('willcall','!=',False),'|',('type','!=','willcall'),('type','=',False)]}"
+                        />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

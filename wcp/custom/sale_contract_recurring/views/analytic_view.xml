@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <act_window
+            context="{'location': active_id,
+                'search_default_real_stock_available': 1,
+                'search_default_virtual_stock_available': 1,
+                'search_default_virtual_stock_negative': 1,
+                'search_default_real_stock_negative': 1}"
+            id="act_product_location_open"
+            name="Rental Products"
+            res_model="product.product"
+            src_model="account.analytic.account"/>
+
+        <!-- Inherited Analytic Account form for contracts -->
+        <record id="account_analytic_account_form_form_inherit_wcp" model="ir.ui.view">
+            <field name="name">account.analytic.account.form.form.inherit.wcp</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account_analytic_analysis.account_analytic_account_form_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='recurring_invoice_line_ids']/tree/field[@name='name']" position="after">
+                    <field name="start_date"/>
+                    <field name="end_date" readonly="1"/>
+                    <field name="intervals"/>
+                    <field name="last_invoice_date"/>
+                </xpath>
+                <xpath expr="//field[@name='recurring_invoice_line_ids']/tree/field[@name='uom_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='recurring_invoice_line_ids']/tree/field[@name='price_subtotal']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button class="oe_inline oe_stat_button" type="object" name="sched_delivery_calls"
+                        icon="fa-usd"  string="Scheduler" widget="statinfo" invisible="1"/>
+                    <button class="oe_inline oe_stat_button" type="object" name="action_view_rental_products"
+                        icon="fa-building-o"  string="Rental Products" widget="statinfo"/>
+                    <button class="oe_inline oe_stat_button" type="object" name="manual_invoice"
+                        icon="fa-usd"  string="Manual Invoice" widget="statinfo"/>
+                </xpath>
+                <xpath expr="//field[@name='manager_id']" position="after">
+                    <field name="property_stock_customer_rental"/>
+                    <field name="total_qty"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--inherit for add product_id ,quantity,sale order relation field in delivery contract-->
+        <record id="sale_product_container_rental_inherit_wcp" model="ir.ui.view">
+            <field name="name">sale.product.container.rental.inherit.wcp</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="sale_product_container_rental.account_analytic_account_delivery_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/tree[@string='Delivery Locations']/field[@name='name']" position="after">
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+                </xpath>
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/tree[@string='Delivery Locations']/field[@name='nextcall']" position="after">
+                    <field name="sale_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+
+                </xpath>
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/form/group/group[1]/field[@name='name']" position="after">
+                    <field name="product_id"/>
+                </xpath>
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/form/group/group[2]/field[@name='location_id']" position="after">
+                    <field name="quantity"/>
+                </xpath>
+                <xpath expr="//page[@name='rental_page']/div/field[@name='rental_product_line_ids']/tree[@string='Account Rental Lines']/field[@name='product_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+    </record>
+
+
+        <!-- Rename Action Sales/Sales/Contracts to Customer Account-->
+        <record id="account_analytic_analysis.action_account_analytic_overdue_all" model="ir.actions.act_window">
+            <field name="name">Customer Account</field>
+            <field name="res_model">account.analytic.account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_type':'contract', 'search_default_open':1, 'search_default_pending':1, 'default_manager_id':uid}</field>
+            <field name="domain">[('type','=','contract')]</field>
+            <field name="search_view_id" ref="account_analytic_analysis.view_account_analytic_account_overdue_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new contract.
+                </p><p>
+                    Use contracts to follow tasks, issues, timesheets or invoicing based on
+                    work done, expenses and/or sales orders. Odoo will automatically manage
+                    the alerts for the renewal of the contracts to the right salesperson.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="account_analytic_analysis.action_account_analytic_overdue_all" id="account_analytic_analysis.menu_action_account_analytic_overdue_all" sequence="8" parent="base.menu_sales"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_analytic_make_subscription" model="ir.ui.view">
+            <field name="name">Create Service Calls</field>
+            <field name="model">analytic.make.subscription</field>
+            <field name="arch" type="xml">
+                <form string="Create Service Calls" version="7.0">
+                    <group>
+                        <group>
+                            <field name="interval_number"/>
+                            <field name="interval_type"/>
+                        </group>
+                        <group>
+                            <field name="exec_init"/>
+                            <field name="date_init"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="make_subscription" string="_Create" type="object" class="oe_highlight"/>
+                         or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_make_subscription" model="ir.actions.act_window">
+            <field name="name">Create Service Calls</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">analytic.make.subscription</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_analytic_make_subscription"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

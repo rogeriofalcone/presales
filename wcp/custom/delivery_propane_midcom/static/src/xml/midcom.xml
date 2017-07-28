@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="ImportDelivery">
+            <button type="button" class="btn btn-default btn_delivery pull-right" >Import Delivery</button>
+            <button type="button" class="btn btn-default btn_delivery_complete pull-right">Complete Delivery</button>
+    </t>
+</templates>

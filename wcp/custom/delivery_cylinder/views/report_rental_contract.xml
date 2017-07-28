@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <template id="account_analytic_account_header" inherit_id="report.external_layout_header">
+            <xpath expr="//div[@class='header']" position="replace">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 45px;"/>
+                        </div>
+                        <div class="col-xs-9 text-right" style="margin-top:20px;" t-field="company.rml_header1"/>
+                    </div>
+                    <div class="row zero_min_height">
+                        <div class="col-xs-12">
+                            <div style="border-bottom: 1px solid black;"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div t-field="company.partner_id" 
+                                 t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                                 style="border-bottom: 1px solid black;"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        
+        <template id="account_analytic_account_footer" inherit_id="report.external_layout_footer">
+            <xpath expr="//div[@class='footer']" position="replace">
+                <div class="footer">
+                    <table width="100%">
+                        <tr>
+                            <td width="50%">CONDITIONS:</td>
+                            <td width="20%">Customer Signature</td>
+                            <td width="30%" style="border-bottom:1px solid black;"></td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <span style="font-size:7px;" t-field="o.conditions"/>
+                            </td>
+                            <td width="20%"></td>
+                            <td width="30%"></td>
+                        </tr>
+                                
+                    </table>
+                </div>
+            </xpath>
+        </template>
+    
+        <template id="report_rental_contract">
+            <style>
+                tbody td{
+                padding-top:7px;
+                }
+                
+     
+            </style>
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong t-if="o.partner_id">Customer Address:</strong>
+                                    <div t-field="o.partner_id" 
+                                         t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                                                        
+                                </div>
+                            </div>
+                            <h2>
+                                <span t-if="o.code">Rental Contract No.</span>
+                                <span t-field="o.code"/>
+                            </h2>
+                            <table width="100%">
+                                
+                                <thead style="border-bottom:1px solid black;">
+                                    <td>Prod Description</td>
+                                    <td>Interval</td>
+                                    <td>Price</td>
+                                </thead>
+                                <tbody>
+                                    <t t-set="count" t-value="0"/>
+                                    <tr t-foreach="o.rental_product_line_ids" style="page-break-inside:avoid!important;" t-as="line">
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.interval_number"/>
+                                            <span t-field="line.interval_type"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                           
+                            
+                            
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

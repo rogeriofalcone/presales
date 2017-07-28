@@ -1,0 +1,8 @@
+<sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="com.odoo.auth"
+    android:contentAuthority="com.odoo.scan.location.providers"
+    android:label="Sync Location"
+    android:supportsUploading="true"
+    android:allowParallelSyncs="true"
+    android:isAlwaysSyncable="true"
+    android:userVisible="true" />

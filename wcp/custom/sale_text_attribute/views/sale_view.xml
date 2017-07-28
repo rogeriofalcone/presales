@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    
+        <record id="view_order_form_text_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.text.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@string='Order Lines']/field[@name='order_line']/form[@string='Sales Order Lines']/group/group/field[@name='address_allotment_id']" position="after">
+                    <field name="image" widget="image"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_order_form_service_inherit" model="ir.ui.view">
+            <field name="name">view.order.form.service.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_contract_recurring.view_order_form_inherit_wcp"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form//field[@name='product_id']" position="attributes">
+                    <attribute name="domain">
+                        ['&amp;',('partner_id','=',parent.partner_id),'&amp;',
+                        '|',('rental_ok', '!=', True), ('container_ok', '!=', True),
+                        '|',('rental_ok', '!=', False), ('container_ok', '!=', False),
+                        ]    
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+    
+    
+    
+</openerp>
+    

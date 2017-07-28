@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<openerp>
+    <data>
+
+        <report
+            id="delivery_route_delivery"
+            string="Route Deliveries"
+            model="delivery.propane"
+            report_type="qweb-pdf"
+            name="delivery_cylinder.report_route_delivery"
+            file="delivery_cylinder.report_route_delivery"
+            menu="False"
+         />
+        
+        <report 
+            id="delivery_propane_delivery"
+            string="View Report"
+            model="delivery.propane" 
+            report_type="qweb-pdf"
+            file="delivery_cylinder.report_delivery_propane" 
+            name="delivery_cylinder.report_delivery_propane" 
+        />
+        
+        <report 
+            id="rental_contract"
+            string="Rental Contract"
+            model="account.analytic.account" 
+            report_type="qweb-pdf"
+            file="delivery_cylinder.report_rental_contract" 
+            name="delivery_cylinder.report_rental_contract" 
+        />
+        
+    </data>
+</openerp>

@@ -1,0 +1,8 @@
+.openerp .btn_delivery {
+    position : absolute;
+    right : 150px;
+}
+.openerp .btn_delivery_complete {
+    position : absolute;
+    right : 320px;
+}

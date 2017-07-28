@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record id="view_picking_merge_form" model="ir.ui.view">
+            <field name="name">view.picking.merge.form</field>
+            <field name="model">merge.picking</field>
+            <field name="arch" type="xml">
+                <form string="Complete Deliveries">
+                    <seperator string="Complete Deliveries"/>
+                    <footer>
+                        <button name="action_create_pickings" type="object" string="Complete Deliveries" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window
+            name="Complete Delivery"
+            res_model="merge.picking"
+            src_model="delivery.propane"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_picking_create"/>
+
+    </data>
+</openerp>

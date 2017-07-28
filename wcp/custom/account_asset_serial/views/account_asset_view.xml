@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_account_asset_asset_form_serial">
+	      <field name="name">account.asset.asset.form.serial</field>
+	      <field name="model">account.asset.asset</field>
+	      <field name="inherit_id" ref="account_asset_management.view_account_asset_asset_form"/>
+	      <field name="arch" type="xml">
+	      	<xpath expr="//field[@name='code']" position="before">
+	      		<field name="serial_no" attrs="{'invisible':[('type','=','view')]}"/>
+	      	</xpath>
+	      </field>
+	     </record> 
+	</data>	
+</openerp>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="10dp"
+    android:minHeight="?android:attr/listPreferredItemHeight">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/location_name"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:typeface="monospace" />
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Quantity"-->
+    <!--android:id="@+id/stockmove_qty"-->
+    <!--android:layout_alignBottom="@+id/stockmove_product_id"-->
+    <!--android:layout_alignRight="@+id/stockmove_des_loc"-->
+    <!--android:layout_alignEnd="@+id/stockmove_des_loc"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Source Location"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:id="@+id/stockmove_source_loc"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Destination Location"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:id="@+id/stockmove_des_loc"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentEnd="true" />-->
+
+    <TextView
+        android:layout_width="2dp"
+        android:layout_height="2dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/location_id"
+        android:layout_centerHorizontal="true"
+        />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:id="@+id/date_next"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:textColor="#060506"-->
+        <!--android:text="Date"-->
+        <!--android:layout_alignBottom="@+id/location_name"-->
+        <!--android:typeface="normal"-->
+        <!--android:textSize="15dp" />-->
+
+</RelativeLayout>

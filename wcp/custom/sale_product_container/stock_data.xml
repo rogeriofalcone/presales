@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data noupdate="1">
+
+        <record id="location_tanks" model="stock.location">
+            <field name="name">Tanks</field>
+            <field name="location_id" search="[('name','=','Virtual Locations')]"/>
+            <field name="usage">internal</field>
+            <field name="active">True</field>
+        </record>
+        
+   </data>
+</openerp>

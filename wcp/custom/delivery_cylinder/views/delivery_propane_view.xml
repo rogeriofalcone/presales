@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+          <!-- Propane Delivery Tree View -->
+       <record model="ir.ui.view" id="view_delivery_propane_tree">
+            <field name="name">view.delivery.propane.tree</field>
+            <field name="model">delivery.propane</field>
+            <field name="arch" type="xml">
+                <tree string="Delivery Information" editable="top">
+                    <field name="location_id" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="delivery_date" readonly="1"/>
+                    <field name="project_id" readonly="1"/>
+                    <field name="delivery_route_id" readonly="1"/>
+                    <field name="sequence" readonly="1"/>
+                    <field name="schedule_in" readonly="1"/>
+                    <field name="schedule_out" readonly="1"/>
+                    <field name="actual_in" attrs="{'readonly':[('state','=','done')]}"/>
+                    <field name="actual_out" attrs="{'readonly':[('state','=','done')]}"/>
+                    <field name="type"/>
+                    <button name="%(action_picking_create)s" type="action" string="Complete" icon="gtk-apply"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+       <!-- Propane Delivery form View -->
+       <record model="ir.ui.view" id="view_delivery_propane_form">
+            <field name="name">view.delivery.propane.form</field>
+            <field name="model">delivery.propane</field>
+            <field name="arch" type="xml">
+                <form string="Propane Delivery">
+                    <header>
+                        <button name="%(action_picking_create)s" type="action" string="Complete" class="oe_highlight" attrs="{'invisible': [('state', '=', 'done')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,open,done" statusbar_colors='{"cancel":"red","open":"blue"}'/>
+                    </header>
+                    <sheet style="width: 90%%,height:90%%">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="delivery_date" readonly="1"/>
+                            </h1>
+                        </div>
+                        <div class="oe_right oe_button_box" name="buttons">
+                        </div>
+                        <group>
+                            <group>
+                                <field name="location_id" placeholder="Location"/>
+                                <field name="product_id" placeholder="Product"/>
+                                <field name="delivery_date" readonly="1"/>
+                                <field name="project_id" readonly="1"/>
+                                <field name="delivery_route_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="sequence" readonly="1"/>
+                                <field name="schedule_in" readonly="1"/>
+                                <field name="schedule_out" readonly="1"/>
+                                <field name="actual_in" attrs="{'readonly':[('state','=','done')]}"/>
+                                <field name="actual_out" attrs="{'readonly':[('state','=','done')]}"/>
+                                <field name="invoice_id"/>
+                                <field name="type"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Propane Delivery Search View -->
+        <record model="ir.ui.view" id="view_delivery_propane_search">
+            <field name="name">view.delivery.propane.search</field>
+            <field name="model">delivery.propane</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <separator orientation="vertical"/>
+                    <field name="location_id"/>
+                    <field name="product_id"/>
+                    <field name="type"/>
+                    <field name="delivery_route_id"/>
+                    <filter icon="terp-go-home" name="state" string="Draft" domain="[('state', '=', 'draft')]" help="Draft"/>
+                    <group expand="0" string="Group By" colspan="12" col="10">
+                        <filter string="Location" domain="[]"  context="{'group_by':'location_id'}"/>
+                        <filter string="Product" domain="[]"  context="{'group_by':'product_id'}"/>
+                        <filter string="Type" domain="[]"  context="{'group_by':'type'}"/>
+                        <filter string="Date" domain="[]"  context="{'group_by':'delivery_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Propane Delivery Action View -->
+        <record model="ir.actions.act_window" id="action_delivery_propane">
+            <field name="name">Propane Delivery</field>
+            <field name="res_model">delivery.propane</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_state':'done'}</field>
+        </record>
+
+        <menuitem
+            parent="delivery_route.menu_stock_delivery"
+            id="menu_delivery_propane"
+            action="action_delivery_propane"
+            sequence="1"/>
+   </data>
+</openerp>

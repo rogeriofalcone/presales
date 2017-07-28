@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?android:attr/actionBarSize"-->
+        <!--android:text="@string/scanlabel_delivery_order"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:background="@color/theme_primary"-->
+        <!--android:id="@+id/top_message_textView"-->
+        <!--android:textSize="25sp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:layout_gravity="center_horizontal"/>-->
+
+    <!--Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dump stockmoves"
+            android:id="@+id/dump_moves"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+        <!--<EditText-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:inputType="numberSigned"-->
+                <!--android:gravity="center"-->
+                <!--android:ems="10"-->
+                <!--android:hint="@string/stockmove_edittext"-->
+                <!--android:id="@+id/serial_editText"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_centerHorizontal="true"/>-->
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:clickable="true"
+                android:showWeekNumber="false" />
+
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next >>"
+                android:id="@+id/scan_do"
+                android:visibility="visible"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+        </LinearLayout>
+</RelativeLayout>

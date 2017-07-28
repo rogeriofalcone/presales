@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <template id="report_route_delivery">
+            
+            <t t-call="report.html_container">
+                <t t-call="report.internal_layout">
+                    <div class="page">
+                        <h2>Route Delivery Report</h2>
+                        <div class="row mt32">
+                            <div class="col-xs-3">
+                                <strong>Route</strong>:<br/>
+                                <span t-esc="get_route(data['form'])['route']"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Responsible</strong>:<br/>
+                                <span t-esc="get_route(data['form'])['user_id']"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Vehicle</strong>:<br/>
+                                <span t-esc="get_route(data['form'])['vehicle']"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Date</strong>:<br/>
+                                <span t-esc="formatLang(get_route(data['form'])['date'],date=True)"/>
+                            </div>
+                        </div>
+
+                        <h3>Route Summary</h3>
+                        <table class="table table-condensed">
+                            <thead>
+                                <th>
+                                    <strong>Product</strong>
+                                </th>
+                                <th>
+                                    <strong>In</strong>
+                                </th>
+                                <th>
+                                    <strong>Out</strong>
+                                </th>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <tr t-foreach="get_summary_products(data['form'])" t-as="product_ids">
+                                    <td>
+                                        <span t-esc="product_ids[0]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="product_ids[1]"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="product_ids[2]"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/><br/><br/><br/>
+                        <h4>Additional Product Deliveries</h4>
+                        <table class="table table-condensed" style="page-break-after:always;">
+                            <thead>
+                                <th>
+                                    <strong>Location</strong>
+                                </th>
+                                <th>
+                                    <strong>Qty</strong>
+                                </th>
+                                <th>
+                                    <strong>Product</strong>
+                                </th>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <tr t-foreach="get_pickings(data['form'])" t-as="picking_ids">
+                                    <tr t-foreach="picking_ids.move_lines" t-as="move">
+                                        <td>
+                                            <span t-esc="move.location_dest_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="move.product_qty"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="move.product_id.name"/>
+                                        </td>
+                                    </tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <table class="table table-condensed" style="page-break-after:always;" t-foreach="get_locations(data['form'])" t-as="location_ids">
+                            <tr>
+                                <h3>Route Detail</h3>
+                            </tr>
+                            <tr>
+                            <h4>
+                                <span t-esc="location_ids.name"/>
+                            </h4>
+                            </tr>
+                            <thead>
+                                <th style="border:1px solid #323232">
+                                    <strong>Product</strong>
+                                </th>
+                                <th style="border:1px solid #323232">
+                                    <strong>Est. In</strong>
+                                </th>
+                                <th style="border:1px solid #323232">
+                                    <strong>Est. Out</strong>
+                                </th>
+                                <th style="border:1px solid #323232">
+                                    <strong>Actual In</strong>
+                                </th>
+                                <th style="border:1px solid #323232">
+                                    <strong>Actual Out</strong>
+                                </th>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <tr t-foreach="get_detail_products(location_ids)" t-as="products" style="page-break-inside: avoid!important">
+                                    <td style="border:1px solid #323232">
+                                        <span t-esc="products.product_id.name"/>
+                                    </td>
+                                    <td style="border:1px solid #323232">
+                                        <span t-esc="products.schedule_in"/>
+                                    </td>
+                                    <td style="border:1px solid #323232">
+                                        <span t-esc="products.schedule_out"/>
+                                    </td>
+                                    <td style="border:1px solid #323232">
+                                        <span/>
+                                    </td>
+                                    <td style="border:1px solid #323232">
+                                        <span/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

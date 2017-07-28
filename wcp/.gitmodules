@@ -1,0 +1,163 @@
+[submodule "other/odoo-india"]
+	path = other/odoo-india
+	url = https://github.com/simplifysolutions/odoo-india.git
+[submodule "other/field-service"]
+	path = other/field-service
+	url = https://github.com/simplifysolutions/field-service.git
+[submodule "oca/sale-workflow"]
+	path = oca/sale-workflow
+	url = https://github.com/OCA/sale-workflow.git
+[submodule "oca/server-tools"]
+	path = oca/server-tools
+	url = https://github.com/OCA/server-tools.git
+[submodule "oca/odoo"]
+	path = oca/odoo
+	url = https://github.com/OCA/OCB.git
+[submodule "oca/account-closing"]
+	path = oca/account-closing
+	url = https://github.com/OCA/account-closing.git
+[submodule "other/odoo_apps"]
+	path = other/odoo_apps
+	url = https://github.com/bizzappdev/odoo_apps.git
+[submodule "oca/web"]
+	path = oca/web
+	url = https://github.com/OCA/web.git
+[submodule "oca/bank-statement-reconcile"]
+	path = oca/bank-statement-reconcile
+	url = https://github.com/OCA/bank-statement-reconcile.git
+[submodule "other/partner-contact"]
+	path = other/partner-contact
+	url = https://github.com/OCA/partner-contact.git
+[submodule "oca/--branch"]
+	path = oca/--branch
+	url = https://github.com/OCA/stock-logistics-warehouse.git
+[submodule "oca/stock-logistics-warehouse"]
+	path = oca/stock-logistics-warehouse
+	url = https://github.com/OCA/stock-logistics-warehouse.git
+	branch = 8.0
+[submodule "oca/hr"]
+	path = oca/hr
+	url = https://github.com/OCA/hr.git
+	branch = 8.0
+[submodule "oca/account-invoicing"]
+	path = oca/account-invoicing
+	url = https://github.com/OCA/account-invoicing.git
+[submodule "other/elico-openerp-7.0"]
+	path = other/elico-openerp-7.0
+	url = https://github.com/Elico-Corp/openerp-7.0.git
+[submodule "other/odoo-payment_moneris"]
+	path = other/odoo-payment_moneris
+	url = https://github.com/willxinc/odoo-payment_moneris.git
+[submodule "oca/odoomrp-utils"]
+	path = oca/odoomrp-utils
+	url = https://github.com/odoomrp/odoomrp-utils.git
+[submodule "oca/odoomrp-wip"]
+	path = oca/odoomrp-wip
+	url = https://github.com/odoomrp/odoomrp-wip.git
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = https://github.com/OCA/product-attribute.git
+[submodule "oca/geospatial"]
+	path = oca/geospatial
+	url = https://github.com/OCA/geospatial.git
+	branch = 8.0
+[submodule "oca/l10n-canada"]
+	path = oca/l10n-canada
+	url = https://github.com/OCA/l10n-canada.git
+	branch = 8.0
+[submodule "oca/bank-payment"]
+	path = oca/bank-payment
+	url = https://github.com/savoirfairelinux/bank-payment.git
+	branch = 8.0-npg_modules
+[submodule "oca/account-analytic"]
+	path = oca/account-analytic
+	url = https://github.com/OCA/account-analytic
+	branch = 8.0
+[submodule "oca/account-budgeting"]
+	path = oca/account-budgeting
+	url = https://github.com/OCA/account-budgeting
+	branch = 8.0
+[submodule "oca/account-consolidation"]
+	path = oca/account-consolidation
+	url = https://github.com/OCA/account-consolidation
+	branch = 8.0
+[submodule "oca/account-financial-reporting"]
+	path = oca/account-financial-reporting
+	url = https://github.com/OCA/account-financial-reporting
+	branch = 8.0
+[submodule "oca/account-financial-tools"]
+	path = oca/account-financial-tools
+	url = https://github.com/OCA/account-financial-tools
+	branch = 8.0
+[submodule "oca/account-fiscal-rule"]
+	path = oca/account-fiscal-rule
+	url = https://github.com/OCA/account-fiscal-rule
+	branch = 8.0
+[submodule "oca/account-payment"]
+	path = oca/account-payment
+	url = https://github.com/OCA/account-payment
+	branch = 8.0
+[submodule "oca/bank-statement-import"]
+	path = oca/bank-statement-import
+	url = https://github.com/OCA/bank-statement-import
+	branch = 8.0
+[submodule "oca/crm"]
+	path = oca/crm
+	url = https://github.com/OCA/crm
+	branch = 8.0
+[submodule "oca/knowledge"]
+	path = oca/knowledge
+	url = https://github.com/OCA/knowledge
+	branch = 8.0
+[submodule "oca/manufacture"]
+	path = oca/manufacture
+	url = https://github.com/OCA/manufacture
+	branch = 8.0
+[submodule "oca/manufacture-reporting"]
+	path = oca/manufacture-reporting
+	url = https://github.com/OCA/manufacture-reporting
+	branch = 8.0
+[submodule "oca/margin-analysis"]
+	path = oca/margin-analysis
+	url = https://github.com/OCA/margin-analysis
+	branch = 8.0
+[submodule "oca/product-kitting"]
+	path = oca/product-kitting
+	url = https://github.com/OCA/product-kitting
+	branch = 8.0
+[submodule "oca/product-variant"]
+	path = oca/product-variant
+	url = https://github.com/OCA/product-variant
+	branch = 8.0
+[submodule "oca/reporting-engine"]
+	path = oca/reporting-engine
+	url = https://github.com/OCA/reporting-engine
+	branch = 8.0
+[submodule "oca/report-print-send"]
+	path = oca/report-print-send
+	url = https://github.com/OCA/report-print-send
+	branch = 8.0
+[submodule "oca/rma"]
+	path = oca/rma
+	url = https://github.com/OCA/rma
+	branch = 8.0
+[submodule "oca/stock-logistics-barcode"]
+	path = oca/stock-logistics-barcode
+	url = https://github.com/OCA/stock-logistics-barcode
+	branch = 8.0
+[submodule "oca/stock-logistics-reporting"]
+	path = oca/stock-logistics-reporting
+	url = https://github.com/OCA/stock-logistics-reporting
+	branch = 8.0
+[submodule "oca/stock-logistics-workflow"]
+	path = oca/stock-logistics-workflow
+	url = https://github.com/OCA/stock-logistics-workflow
+	branch = 8.0
+[submodule "oca/webkit-tools"]
+	path = oca/webkit-tools
+	url = https://github.com/OCA/webkit-tools
+	branch = 8.0
+[submodule "oca/odoo-eam"]
+	path = oca/odoo-eam
+	url = https://github.com/codup/odoo-eam.git
+	branch = 8.0

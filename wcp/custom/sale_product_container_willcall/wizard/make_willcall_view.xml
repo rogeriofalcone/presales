@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record id="analytic_willcall_view" model="ir.ui.view">
+            <field name="name">analytic.willcall.form</field>
+            <field name="model">analytic.willcall</field>
+            <field name="arch" type="xml">
+                <form string="Will Call">
+                    <group>
+                        <group>
+                            <field name="date" required="1"/>
+                            <field name="route_id"
+                                domain="[('date','&lt;=',date + ' 23:59:59'),
+                                        ('date','&gt;=',date + ' 00:00:00')]"
+                                required="1"/>
+                        </group>
+                        <group>
+                            <field name="location_id" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="line_ids" nolabel="1" widget="one2many_list">
+                            <tree string="Will Call lines" editable="bottom">
+                                <field name="product_id" readonly="1"/>
+                                <field name="merge_qty" readonly="1"/>
+                                <field name="quantity"/>
+                                <field name="delivery_line" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="create_willcall" type="object" string="Create" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window
+            name="Create Will Call"
+            res_model="analytic.willcall"
+            src_model="account.analytic.account"
+            view_mode="form"
+            target="new"
+            view_id="analytic_willcall_view"
+            key2="client_action_multi"
+            id="action_analytic_willcall"/>
+
+        <act_window
+            name="Create Will Call"
+            res_model="analytic.willcall"
+            src_model="account.analytic.delivery"
+            view_mode="form"
+            target="new"
+            view_id="analytic_willcall_view"
+            key2="client_action_multi"
+            id="action_analytic_willcall"/>
+
+
+    </data>
+</openerp>

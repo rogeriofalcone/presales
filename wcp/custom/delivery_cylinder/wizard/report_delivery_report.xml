@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--   route.delivery.report -->
+
+        <record id="view_route_delivery_report" model="ir.ui.view">
+            <field name="name">route.delivery.report.form</field>
+            <field name="model">route.delivery.report</field>
+            <field name="arch" type="xml">
+                <form string="Route Deliveries">
+                    <group>
+                        <group>
+                            <field name="date" required="1"/>
+                            <field name="route_instance_id"
+                                domain="[('date','&lt;=',date + ' 23:59:59'),
+                                        ('date','&gt;=',date + ' 00:00:00')]"
+                                />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" type="object" string="Print Report" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    <act_window name="Route Deliveries"
+            res_model="route.delivery.report"
+            view_mode="form"
+            target="new"
+            id="action_route_delivery_report"/>
+
+        <menuitem
+            name="Route Delivery Report"
+            parent="delivery_route.menu_stock_delivery"
+            action="action_route_delivery_report"
+            sequence="99"
+            id="menu_route_delivery_report"
+           />
+
+    </data>
+</openerp>

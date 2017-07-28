@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="ir_cron_scheduler_sched_service_calls" model="ir.cron">
+            <field name="name">Create Contract Service Calls</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="True" name="doall"/>
+            <field eval="'analytic.service.call.location'" name="model"/>
+            <field eval="'sched_service_calls'" name="function"/>
+            <field eval="'(False,)'" name="args"/>
+        </record>
+
+        <!-- Top level Analytic Account -->
+        <record id="all_rental_pmp_account" model="account.analytic.account">
+            <field name="name">Contract Rentals</field>
+            <field name="code">RNT</field>
+            <field name="type">view</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!--inherit for add route many2one delivery contract-->
+        <record id="sale_product_container_rental_inherit_wcp_tran" model="ir.ui.view">
+            <field name="name">sale.product.container.rental.inherit.wcp.tran</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="sale_contract_recurring.sale_product_container_rental_inherit_wcp"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/tree[@string='Delivery Locations']/field[@name='product_id']" position="after">
+                    <field name="delivery_route_id"/>
+                </xpath>
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/form//field[@name='interval_number']" position="replace">
+                    <field name="interval_number" attrs="{'readonly':[('delivery_route_id','=',False)]}"/>
+                </xpath>
+                <xpath expr="//page[@name='service_page']/field[@name='delivery_ids']/form/group/group[2]/field[@name='quantity']" position="after">
+                    <field name="delivery_route_id"/>
+                    <field name="skip_interval" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='delivery_ids']/form/group/group[3]/field[@name='interval_number']" position="after">
+                    <label string="Route Interval" for="route_interval_number"/>
+                    <div>
+                        <field name="route_interval_number" class="oe_inline"/>
+                        <field name="route_interval_type" class="oe_inline"/>
+                    </div>
+                </xpath>
+
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button class="oe_inline oe_stat_button" type="object" name="action_view_delivery_lines"
+                        icon="fa-truck"  string="Delivery Schedule" widget="statinfo"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <!--tree view for account analytic delivery class-->
+        <record id="account_analytic_delivery_tree_view" model="ir.ui.view">
+            <field name="name">account.analytic.delivery.tree.view</field>
+            <field name="model">account.analytic.delivery</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Delivery Schedule" editable="bottom">
+                    <field name="location_id" required="1" context="{'show_address': 1}" readonly="1"/>
+                    <field name="name" invisible="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="delivery_route_id"/>
+                    <field name="sequence"/>
+                    <field name="quantity"/>
+                    <field name="interval_number" readonly="1"/>
+                    <field name="sale_id" invisible="1"/>
+                    <field name="date_start" invisible="1"/>
+                    <field name="date_end" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--form view for account analytic delivery class-->
+        <record id="account_analytic_delivery_form_view" model="ir.ui.view">
+            <field name="name">account.analytic.delivery.form.view</field>
+            <field name="model">account.analytic.delivery</field>
+            <field name="arch" type="xml">
+                <form string="Contract Delivery Schedule">
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="product_id" readonly="1"/>
+                            <field name="delivery_route_id"/>
+                            <field name="sequence"/>
+                            <field name="quantity"/>
+                         </group>
+                         <group>
+                            <field name="location_id" required="1" context="{'show_address': 1}" readonly="1"/>
+                            <field name="interval_number" readonly="1"/>
+                            <field name="nextcall" readonly="1"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                         </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_analytic_delivery_search_view">
+            <field name="name">account.analytic.delivery.search.view</field>
+            <field name="model">account.analytic.delivery</field>
+            <field name="arch" type="xml">
+                <search string="Delivery Schedule">
+                    <field name="delivery_route_id"/>
+                    <field name="location_id" groups="stock.group_locations"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Route" icon="terp-go-home" domain="[]"  context="{'group_by':'delivery_route_id'}"/>
+                        <filter string="Location" icon="terp-go-home" domain="[]" context="{'group_by':'location_id'}"/>
+                        <filter string="Order Month" domain="[]" context="{'group_by':'nextcall'}"/>
+                        <filter string="Order Week" domain="[]" context="{'group_by':'nextcall:week'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--Design Action for account analytic delivery class-->
+        <record id="action_contract_delivery_lines" model="ir.actions.act_window">
+            <field name="name">Customer Delivery Schedule</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.analytic.delivery</field>
+            <!-- <field name="context">{'show_address':1}</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="account_analytic_delivery_search_view"/>
+
+        </record>
+
+        <menuitem action="action_contract_delivery_lines" id="menu_contract_delivery_line"
+            parent="delivery_route.menu_stock_delivery"
+            sequence="2"/>
+
+    </data>
+</openerp>
